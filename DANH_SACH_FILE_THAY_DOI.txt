@@ -1,0 +1,48 @@
+=====================================================================
+ DANH SÁCH FILE THAY ĐỔI — 4 chức năng Admin (Chi nhánh, Giá,
+ Báo cáo doanh thu, Cấu hình hệ thống)
+=====================================================================
+
+I. FILE MỚI THÊM VÀO PROJECT (trước đây chưa có)
+---------------------------------------------------------------------
+Java:
+  src/main/java/Servlet/admin/BranchServlet.java
+  src/main/java/Servlet/admin/PriceServlet.java
+  src/main/java/Servlet/admin/ReportServlet.java
+  src/main/java/Servlet/admin/SystemSettingServlet.java
+  src/main/java/DAO/admin/PriceHistoryDAO.java
+  src/main/java/DAO/admin/SystemSettingDAO.java
+
+JSP:
+  src/main/webapp/admin/branch/list.jsp
+  src/main/webapp/admin/branch/form.jsp
+  src/main/webapp/admin/price/list.jsp
+  src/main/webapp/admin/price/history.jsp
+  src/main/webapp/admin/report/revenue.jsp
+  src/main/webapp/admin/setting/list.jsp
+  src/main/webapp/admin/setting/form.jsp
+
+II. FILE CŨ CÓ SỬA (code đã tồn tại từ trước, chỉnh/thêm vào)
+---------------------------------------------------------------------
+  src/main/java/DAO/admin/BranchDAO.java
+    - File đã có sẵn (chỉ có findAll()).
+    - Ghi đè toàn bộ để thêm 2 method: update(), nameExists().
+
+  src/main/java/DAO/admin/ProductDAO.java
+    - Thêm 1 method mới: updatePrice(...).
+    - Các method cũ (insert, update, search...) giữ nguyên không đổi.
+
+  src/main/java/DAO/user/OrderDAO.java
+    - Thêm 1 method mới: findCompletedBetween(...).
+    - Các method cũ (search, cancel, updateStatus...) giữ nguyên
+      không đổi.
+
+  src/main/webapp/admin/sidebar.jsp
+    - Chỉ thêm các dòng <a> link menu mới: Giá & lịch sử, Doanh thu,
+      Chi nhánh, Cấu hình hệ thống.
+    - Không xóa/sửa dòng menu nào đã có từ trước.
+
+---------------------------------------------------------------------
+Ngoài 4 file "sửa" ở mục II, không đụng tới bất kỳ file nào khác
+trong project.
+=====================================================================
